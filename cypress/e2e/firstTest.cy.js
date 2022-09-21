@@ -1,49 +1,49 @@
 /// <reference types="cypress" />
 
 
-// describe('Mobile phone replenishment', () => {
-//     context('Replenishment less than the allowed amount', () => {
-//         it('Show error: Minimum amount of the replenishment 1 UAH', () => {
+describe('Mobile phone replenishment', () => {
+    context('Replenishment less than the allowed amount', () => {
+        it('Show error: Minimum amount of the replenishment 1 UAH', () => {
 
-//         })    
-//     })
+        })    
+    })
  
-// })
+})
 
-// it('By Id', () => {
-//     cy.visit('https://facebook.com/')
-//     cy.get('#email')
-// })
+it('By Id', () => {
+    cy.visit('https://facebook.com/')
+    cy.get('#email')
+})
 
-// it('By class', () => {
-//     cy.visit('https://docs.cypress.io/api/commands/get.html#Syntax')
-//     cy.get('.language-javascript')
-// })
+it('By class', () => {
+    cy.visit('https://docs.cypress.io/api/commands/get.html#Syntax')
+    cy.get('.language-javascript')
+})
 
-// it('By Tag', () => {
-//     cy.visit('https://docs.cypress.io/api/commands/get.html#Syntax')
-//     cy.get('nav')
-// })
+it('By Tag', () => {
+    cy.visit('https://docs.cypress.io/api/commands/get.html#Syntax')
+    cy.get('nav')
+})
 
-// it('By Tag value', () => {
-//     cy.visit('https://facebook.com/')
-//     cy.get('[name="pass"]')
-// })
+it('By Tag value', () => {
+    cy.visit('https://facebook.com/')
+    cy.get('[name="pass"]')
+})
 
-// it('By Different Tag value', () => {
-//     cy.visit('https://facebook.com/')
-//     cy.get('[data-testid="open-registration-form-button"][role="button"]')
-// })
+it('By Different Tag value', () => {
+    cy.visit('https://facebook.com/')
+    cy.get('[data-testid="open-registration-form-button"][role="button"]')
+})
 
-// it('By Different Types', () => {
-//     cy.visit('https://docs.cypress.io/api/commands/get.html#Syntax')
-//     cy.get('button[type="button"][title="close bunner"]')
-// })
+it('By Different Types', () => {
+    cy.visit('https://docs.cypress.io/api/commands/get.html#Syntax')
+    cy.get('button[type="button"][title="close bunner"]')
+})
 
-// it.only('By Contains name', () => {
-//     cy.visit('https://next.privat24.ua')
-//     cy.get('*[class^="card"]')
-// })
+it.only('By Contains name', () => {
+    cy.visit('https://next.privat24.ua')
+    cy.get('*[class^="card"]')
+})
 
 // Comment
 it('Using Get with Find and eq', () => {
