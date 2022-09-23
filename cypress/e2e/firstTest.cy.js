@@ -45,7 +45,8 @@ it.skip('Example sending the GET request', () => {
         })
 })
 
-it('Example sending the POST request', () => {
+//Example HTTP POST request with expect verification of response
+it.skip('Example sending the POST request (expect)', () => {
     const requestBody = {       
         action: 'info',
         phone: '+380686979712',
@@ -54,13 +55,13 @@ it('Example sending the POST request', () => {
         cardCvv: '111',
         card: '4552331448138217',
         cardExp: '0526',
-        xref: '4b55a8ad165eda03c8c5ca1cbf55b4b7',
-        '-': 1663897531419
+        xref: '41a4cfeb9f8cc034108f5907ff63bdb4',
+        '-': 1663961767072
 
     }
 
     const headersData = {
-        cookie: '_ga=GA1.2.1267993445.1663792348; _gid=GA1.2.1481065971.1663792348; pubkey=88654dca36f80e047cd41bd79da094f8; lfp=9/21/2022, 1:32:39 PM; pa=1663897284643.47140.5904100887407238next.privat24.ua0.5462836494299079+1; fp=11'
+        cookie: '_ga=GA1.2.1267993445.1663792348; _gid=GA1.2.1481065971.1663792348; pubkey=45ae158242653eded7913b4038e6ef07; fp=12; lfp=9/21/2022, 1:32:39 PM; pa=1663897284643.47140.5904100887407238next.privat24.ua0.5462836494299079+2'
     }
 
     cy.request({
@@ -69,6 +70,37 @@ it('Example sending the POST request', () => {
         body: requestBody,
         headers: headersData
     }).then(response => {
+            expect(response).to.have.property('status').to.equal(200)
+            expect(response.body).to.have.property('status').to.equal('success')
             console.log(response)
         })
+})
+
+//Example HTTP POST request with should verification of response
+it('Example sending the POST request (should)', () => {
+    const requestBody = {       
+        action: 'info',
+        phone: '+380686979712',
+        amount: 50,
+        currency: 'UAH',
+        cardCvv: '111',
+        card: '4552331448138217',
+        cardExp: '0526',
+        xref: '41a4cfeb9f8cc034108f5907ff63bdb4',
+        '-': 1663961767072
+
+    }
+
+    const headersData = {
+        cookie: '_ga=GA1.2.1267993445.1663792348; _gid=GA1.2.1481065971.1663792348; pubkey=45ae158242653eded7913b4038e6ef07; fp=12; lfp=9/21/2022, 1:32:39 PM; pa=1663897284643.47140.5904100887407238next.privat24.ua0.5462836494299079+2'
+    }
+
+    cy.request({
+        method: 'POST',
+        url: 'https://next.privat24.ua/api/p24/pub/mobipay',
+        body: requestBody,
+        headers: headersData
+    })
+        .its('body').should('contain', {status: 'success'})
+        .its('data').should('contain', {status: 'ok'})
 })
